@@ -113,10 +113,7 @@
             </svg>
           </div>
           <div class="flex items-center">
-            <button type="button"
-              class="text-white uppercase text-xs font-extrabold text-opacity-90 tracking-widest bg-black bg-opacity-70 border border-gray-300 rounded-full px-8 py-2 mr-6 hover:bg-black">
-              Upgrade
-            </button>
+
             <button type="button"
               class="text-white capitalize text-sm font-bold bg-black rounded-full px-1 py-1 flex items-center bg-opacity-80 hover:bg-gray-800">
               <svg class="bg-gray-800 rounded-full p-1 border border-gray-700" width="24" height="24"
@@ -134,25 +131,25 @@
           </div>
         </div>
         <div class="flex flex-col justify-center items-center md:hidden">
-          <img src="https://thisis-images.scdn.co/37i9dQZF1DZ06evO1bMVoY-large.jpg" alt="alan walker artist image"
-            class="w-40 h-40" style="box-shadow: 0 4px 60px #00000080" />
-          <h1 class="text-white capitalize font-semibold text-2xl mt-2">
-            This Is Tommy Torres
+          <img src="./images/cover.jpg" alt="alan walker artist image" class="w-40 h-40"
+            style="box-shadow: 0 4px 60px #00000080" />
+          <h1 class="text-white capitalize font-semibold text-2xl mt-2 text-center">
+            ¡Feliz cumpleaños,<br> Tommy Torres!
           </h1>
-          <p class="text-xs uppercase text-gray-100 mt-1">1,308,405 likes</p>
+          <p class="text-xs uppercase text-gray-100 mt-3">¡La mafia mexicana te desea feliz cumpleaños!</p>
         </div>
         <div class="hidden mt-8 flex items-center md:flex">
-          <img id="playlist-thumbnail" src="https://thisis-images.scdn.co/37i9dQZF1DZ06evO1bMVoY-large.jpg"
-            alt="alan walker artist" class="w-56 h-56 mr-6" style="box-shadow: 0 4px 60px #00000080" />
+          <img id="playlist-thumbnail" src="./images/cover.jpg" alt="alan walker artist" class="w-56 h-56 mr-6"
+            style="box-shadow: 0 4px 60px #00000080" />
           <div class="mt-16">
             <h2 class="text-gray-50 uppercase text-xs font-bold tracking-tighter mt-1">
               Playlist
             </h2>
             <span class="text-white text-6xl capitalize font-extrabold tracking-tighter">
-              <h1 id="playlist-title">This Is Tommy Torres</h1>
+              <h1 id="playlist-title">¡Feliz cumpleaños,<br> Tommy Torres!</h1>
             </span>
             <p id="playlist-description" class="text-white mt-6 text-sm font-normal leading-none opacity-70">
-              The essential Tommy Torres tracks and remixes.
+              ¡La mafia mexicana te desea feliz cumpleaños!
             </p>
             <div class="flex items-center mt-2">
               <a target="_blank" class="text-white font-bold text-sm hover:text-underline cursor-pointer"
@@ -228,7 +225,7 @@
               </thead>
               <tbody>
 
-                <tr class="flex  text-gray-400 m-2 font-mono hover:bg-gray-200 hover:bg-opacity-10 rounded-md py-2">
+                <tr class="flex  text-gray-400 m-2 font-mono hover:bg-gray-200 hover:bg-opacity-10 rounded-md py-2 ">
                   <td class=" grid grid-cols-12 gap-4">
                     <div class="col-span-1 justify-center items-center">
                       <p class="text-center py-2">1</p>
@@ -279,13 +276,14 @@
           <div class="hidden fixed left-0 bottom-0 right-0 h-auto flex justify-between flex-row items-center md:flex"
             style="background-color: #181818; border-top: 1px solid #282828">
             <div class="mx-4 my-4 flex justify-start items-center w-1/3">
-              <img src="images/spectre.jpg" alt="heading home song by alan walker" class="shadow-2xl rounded-md" />
+              <img id="coverCurrent" src="images/cover.jpg" width="8%" alt="heading home song by alan walker"
+                class="shadow-2xl rounded-md" />
               <div class="flex flex-col justify-center m-4">
                 <h5 id="song-name" class="text-white font-semi-bold text-sm text-left">
-                  Tu Recuerdo
+
                 </h5>
                 <p id="artist-name" class="text-gray-400 font-semi-bold text-xs">
-                  Tommy Torres
+
                 </p>
               </div>
               <div class="text-gray-300 flex justify-center items-center">
@@ -317,7 +315,7 @@
                   <path d="M13 2.5L5 7.119V3H3v10h2V8.881l8 4.619z"></path>
                 </svg>
                 <button id="play-btn" class="bg-white rounded-full w-8 h-8 flex justify-center items-center">
-                  <svg role="img" height="16" width="16" viewBox="0 0 16 16" class="Svg-ulyrgf-0 hJgLcF">
+                  <svg role="img" height="16" width="16" viewBox="0 0 16 16" class="Svg-ulyrgf-0 ">
                     <path fill="none" d="M0 0h16v16H0z"></path>
                     <path d="M3 2h3v12H3zM10 2h3v12h-3z"></path>
                   </svg>
@@ -338,7 +336,7 @@
                 <div class="bg-gray-600 flex w-full h-full border border-gray-600 rounded-full mx-4">
                   <div id="progress" class="bg-gray-300 border border-gray-300 rounded-full w-0 h-1"></div>
                 </div>
-                <div id="duration" class="text-gray-300 text-xs text-center">3:04</div>
+                <div id="duration" class="text-gray-300 text-xs text-center">0:00</div>
               </div>
             </div>
             <div class="flex flex-row justify-end items-center w-1/3 mr-4">
@@ -384,15 +382,7 @@
               </svg>
               Library
             </button>
-            <button class="flex flex-col items-center">
-              <svg class="fill-current" role="img" height="20" width="20" viewBox="0 0 24 24"
-                class="Svg-ulyrgf-0 hJgLcF">
-                <path
-                  d="M11.5 0C5.149 0 0 5.148 0 11.5 0 17.851 5.149 23 11.5 23S23 17.851 23 11.5C23 5.148 17.851 0 11.5 0zm0 22C5.71 22 1 17.29 1 11.5S5.71 1 11.5 1 22 5.71 22 11.5 17.29 22 11.5 22zm.499-6.842V5h-1v10.149l-3.418-3.975-.758.652 4.678 5.44 4.694-5.439-.757-.653-3.439 3.984z">
-                </path>
-              </svg>
-              Get App
-            </button>
+
           </div>
         </div>
       </div>

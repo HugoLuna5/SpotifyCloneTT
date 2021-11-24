@@ -13,7 +13,7 @@ let playlists = [
     image: '../images/persons/annienaruz.png',
     username: 'annienaruz',
     message: '¡Feliz cumpleaños Tommy!🎉🥳',
-    audio: 'all',
+    audio: '../audios/annienaruz.ogg',
   },
   {
     selected: false,
