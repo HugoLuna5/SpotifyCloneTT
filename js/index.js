@@ -1,4 +1,4 @@
-const serverURL = 'https://tommytorresfest.fun/';
+const serverURL = 'http://tommytorresfest.fun/';
 
 let playlists = [
   {
@@ -15,7 +15,7 @@ let playlists = [
     image: serverURL + 'images/persons/annienaruz.png',
     username: 'annienaruz',
     message: '¡Feliz cumpleaños Tommy!🎉🥳',
-    audio: serverURL + 'audios/annienaruz.ogg',
+    audio: serverURL + 'audios/annienaruz.mp3',
   },
   {
     selected: false,
@@ -24,7 +24,7 @@ let playlists = [
     username: 'luna_hercon',
     message:
       'Feliz cumpleaños Tommy, que la pases bien. \nTe ama la chica de las flores.',
-    audio: serverURL + 'audios/luna.opus',
+    audio: serverURL + 'audios/luna.mp3',
   },
   {
     selected: false,
@@ -32,7 +32,7 @@ let playlists = [
     image: serverURL + 'images/persons/abril.jpg',
     username: 'midorisant4',
     message: '¡Felicidades y gracias por todo Tommy!',
-    audio: serverURL + 'audios/abril.opus',
+    audio: serverURL + 'audios/abril.mp3',
   },
   {
     selected: false,
@@ -55,7 +55,8 @@ let playlists = [
     name: 'America',
     image: serverURL + 'images/persons/america.jpg',
     username: 'amehdezmuro',
-    message: '',
+    message:
+      'Feliz cumpleaños mi Querido Tommy! Abrazos, canciones y mucha inspiración siempre 🤗🥳',
     audio: serverURL + 'audios/america.m4a',
   },
 
@@ -83,14 +84,15 @@ let playlists = [
     image: serverURL + 'images/persons/monica.JPG',
     username: 'monydenisse',
     message: 'Recibe "Demasiado amor" en tu día ❤',
-    audio: serverURL + 'audios/monica.opus',
+    audio: serverURL + 'audios/monica.mp3',
   },
   {
     selected: false,
     name: 'Yazmin',
     image: serverURL + 'images/persons/yazmin.jpg',
     username: 'izbethxd',
-    message: '',
+    message:
+      'No te preocupes por tu edad... Sabemos que entre más añejos los vinos mejor sabor tienen 😋😘',
     audio: serverURL + 'audios/yazmin.mp4',
   },
   {
@@ -107,7 +109,7 @@ let playlists = [
     image: serverURL + 'images/cover.jpg',
     username: 'yolanda.regin',
     message: '',
-    audio: serverURL + 'audios/yolanda.ogg',
+    audio: serverURL + 'audios/yolanda.mp3',
   },
   {
     selected: false,
@@ -116,7 +118,7 @@ let playlists = [
     username: 'manahisv',
     message:
       'Feliz cumpleaños, Tommy!💜🥳🥳🥳💜\nPásala súper lindo, un abrazo 🤗😘',
-    audio: serverURL + 'audios/anahi.ogg',
+    audio: serverURL + 'audios/anahi.mp3',
   },
 ];
 
