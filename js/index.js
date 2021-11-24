@@ -1,4 +1,4 @@
-const serverURL = 'http://127.0.0.1:5500/';
+const serverURL = 'https://tommytorresfest.fun/';
 
 let playlists = [
   {
