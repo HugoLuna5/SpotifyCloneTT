@@ -6,7 +6,7 @@ let playlists = [
     name: '¡Feliz cumpleaños, Tommy Torres!',
     image: serverURL + 'images/cover.jpg',
     username: 'tommytorresmex',
-    message: '¡La mafia mexicana te desea feliz cumpleaños!',
+    message: '¡La mafia mexicana te desea feliz cumpleaños!🎉🥳',
     audio: 'all',
   },
   {
@@ -133,6 +133,7 @@ class="Svg-ulyrgf-0 hJgLcF"
 ></path>
 </svg>`;
 
+const inputVolume = document.getElementById('inputVolume');
 const containerElements = $('#containerElements');
 const sideBarUl = document.getElementById('sidebar-playlist');
 const playListTitle = document.getElementById('playlist-title');
@@ -151,6 +152,9 @@ const pauseGlobalDesktop = document.getElementById('pauseGlobalDesktop');
 const playGlobalMobile = document.getElementById('playGlobalMobile');
 const playGlobalMobileIcon = document.getElementById('playGlobalMobileIcon');
 const pauseGlobalMobileIcon = document.getElementById('pauseGlobalMobileIcon');
+const soundActivated = document.getElementById('soundActivated');
+const soundMuted = document.getElementById('soundMuted');
+
 const playButtonBottomBarMobile = document.getElementById(
   'playButtonBottomBarMobile'
 );
@@ -360,9 +364,11 @@ function loadItems(position) {
   if (position == 0) {
     for (let index = 1; index < playlists.length; index++) {
       let element =
-        '<tr onclick="playSong(' +
+        '<tr id="element' +
         index +
-        ')"  class="flex  text-gray-400 m-2 font-mono hover:bg-gray-200 hover:bg-opacity-10 rounded-md py-2 "><td class=" grid grid-cols-12 gap-4"> <div class="col-span-1 justify-center items-center"> <p class="text-center py-2">' +
+        '"  onclick="playSong(' +
+        index +
+        ')"  class=" flex  text-gray-400 m-2 font-mono hover:bg-gray-200 hover:bg-opacity-10 active:bg-opacity-10 rounded-md py-2"><td class=" grid grid-cols-12 gap-4"> <div class="col-span-1 justify-center items-center"> <p class="text-center py-2">' +
         index +
         '</p></div><div class="col-span-10"> <p class="text-white">¡Feliz cumpleaños!</p><p style="font-size: 0.75rem;">' +
         playlists[index].name +
@@ -372,7 +378,9 @@ function loadItems(position) {
     }
   } else {
     let element =
-      '<tr onclick="playSong(' +
+      '<tr id="element' +
+      1 +
+      '" onclick="playSong(' +
       position +
       ')"  class="flex  text-gray-400 m-2 font-mono hover:bg-gray-200 hover:bg-opacity-10 rounded-md py-2 "><td class=" grid grid-cols-12 gap-4"> <div class="col-span-1 justify-center items-center"> <p class="text-center py-2">' +
       1 +
@@ -385,6 +393,25 @@ function loadItems(position) {
 }
 
 function playSong(position) {
+  if (currentPlayList == 0) {
+    for (let index = 1; index < playlists.length; index++) {
+      document
+        .getElementById('element' + index)
+        .classList.remove('bg-gray-200');
+      document
+        .getElementById('element' + index)
+        .classList.remove('bg-opacity-10');
+    }
+
+    let element = document.getElementById('element' + position);
+    element.classList.add('bg-gray-200');
+    element.classList.add('bg-opacity-10');
+  } else {
+    let element = document.getElementById('element' + position);
+    element.classList.add('bg-gray-200');
+    element.classList.add('bg-opacity-10');
+  }
+
   stopAll(0);
   currentSound = position;
   playPause(position);
@@ -408,6 +435,10 @@ function playPause(position) {
   showInfo();
   artistName.textContent = playlists[position].name;
   songName.textContent = '¡Feliz Cumpleaños!';
+  titleMobile.innerHTML =
+    '¡Feliz Cumpleaños!, <span class="text-gray-300 font-semibold text-sm" id="authorMobile">' +
+    playlists[position].name +
+    '</span>';
   coverCurrent.src = playlists[position].image;
   stopAll(position);
   const dur = moment.unix(sounds[position].duration());
@@ -443,7 +474,32 @@ function hidePlayButtons() {
   pauseIconBottomBarMobile.style.display = 'block';
 }
 
+inputVolume.addEventListener('change', function () {
+  sounds[currentSound].volume(inputVolume.value / 100);
+
+  if (inputVolume.value / 100 <= 0.01) {
+    soundMuted.style.display = 'block';
+    soundActivated.style.display = 'none';
+  } else {
+    soundMuted.style.display = 'none';
+    soundActivated.style.display = 'block';
+  }
+});
+
+soundActivated.addEventListener('click', function () {
+  inputVolume.value = 0.01;
+  soundMuted.style.display = 'block';
+  soundActivated.style.display = 'none';
+});
+
+soundMuted.addEventListener('click', function () {
+  inputVolume.value = 50;
+  soundActivated.style.display = 'block';
+  soundMuted.style.display = 'none';
+});
+
 setInterval(() => {
+  sounds[currentSound].volume(inputVolume.value / 100);
   updateProgress(currentSound);
 }, 300);
 
