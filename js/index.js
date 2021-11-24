@@ -1,48 +1,104 @@
 let playlists = [
   {
-    selected: false,
-    name: "Lizzo",
-    image: "../images/album-images/lizzo.jpg",
-  },
-  {
-    selected: false,
-    name: "H.E.R",
-    image: "../images/album-images/her.webp",
-  },
-  {
-    selected: false,
-    name: "CHIKA",
-    image: "../images/album-images/chika.jpg",
-  },
-  {
     selected: true,
-    name: "Alan Walker",
-    image: "../images/AW.jpg",
+    name: '¡Feliz cumpleaños, Tommy Torres!',
+    image: '../images/cover.jpg',
+    username: 'tommytorresmex',
+    message: '¡La mafia mexicana te desea feliz cumpleaños!',
   },
   {
     selected: false,
-    name: "Chloe x Halle",
-    image: "../images/album-images/chloe.webp",
+    name: 'Annienaruz',
+    image: '../images/persons/annienaruz.png',
+    username: 'annienaruz',
+    message: 'Que chingue a su madre el cumpleañero',
   },
   {
     selected: false,
-    name: "Bruno Mars",
-    image: "../images/album-images/bruno_mars.jpg",
+    name: 'Rocio',
+    image: '../images/persons/rocio.jpeg',
+    username: 'rousmaye',
+    message:
+      'Muchas felicidades querido Tommy, que sigan los éxitos, las bendiciones, la música, el amor. Gracias por tanto.',
   },
   {
     selected: false,
-    name: "Fuse ODG",
-    image: "../images/album-images/fuse_odg.webp",
+    name: 'Abril',
+    image: '../images/persons/rocio.jpeg',
+    username: 'midorisant4',
+    message: '¡Felicidades y gracias por todo Tommy!',
   },
   {
     selected: false,
-    name: "Meghan Trainor",
-    image: "../images/album-images/meghan.jpg",
+    name: 'Diana Hernandez',
+    image: '../images/persons/diana.jpg',
+    username: 'PoynterBell',
+    message: 'Que cumplas muchos años más y que tengas un día increíble!!',
   },
   {
     selected: false,
-    name: "Anne Marie",
-    image: "../images/album-images/ann_marie.webp",
+    name: 'Berenice',
+    image: '../images/persons/rocio.jpeg',
+    username: 'bere_arm',
+    message: 'Ya ármate los conciertos en CDMX y Mty. Te quiero 💕',
+  },
+  {
+    selected: false,
+    name: 'America',
+    image: '../images/persons/america.jpg',
+    username: 'amehdezmuro',
+    message: '',
+  },
+  {
+    selected: false,
+    name: 'Luna',
+    image: '../images/persons/rocio.jpeg',
+    username: 'luna_hercon',
+    message:
+      'Feliz cumpleaños Tommy, que la pases bien. \nTe ama la chica de las flores.',
+  },
+  {
+    selected: false,
+    name: 'Paloma',
+    image: '../images/persons/paloma.jpg',
+    username: 'paloma_saenz_12',
+    message: 'Feliz cumple mi querido Tommy, I💜U',
+  },
+  {
+    selected: false,
+    name: 'Monica',
+    image: '../images/persons/monica.JPG',
+    username: 'monydenisse',
+    message: 'Recibe "Demasiado amor" en tu día ❤',
+  },
+  {
+    selected: false,
+    name: 'Yazmin',
+    image: '../images/persons/rocio.jpeg',
+    username: 'izbethxd',
+    message: '',
+  },
+  {
+    selected: false,
+    name: 'Lyla',
+    image: '../images/persons/rocio.jpeg',
+    username: 'lylacrown',
+    message: '',
+  },
+  {
+    selected: false,
+    name: 'Yolanda',
+    image: '../images/persons/rocio.jpeg',
+    username: 'yolanda.regin',
+    message: '',
+  },
+  {
+    selected: false,
+    name: 'Anahi',
+    image: '../images/persons/rocio.jpeg',
+    username: 'manahisv',
+    message:
+      'Feliz cumpleaños, Tommy!💜🥳🥳🥳💜\nPásala súper lindo, un abrazo 🤗😘',
   },
 ];
 
@@ -59,25 +115,26 @@ class="Svg-ulyrgf-0 hJgLcF"
 ></path>
 </svg>`;
 
-const sideBarUl = document.getElementById("sidebar-playlist");
-const playListTitle = document.getElementById("playlist-title");
-const playlistThumbnail = document.getElementById("playlist-thumbnail");
-const playlistDescription = document.getElementById("playlist-description");
-const songName = document.getElementById("song-name");
-const artistName = document.getElementById("artist-name");
-const timeElapsed = document.getElementById("time-elapsed");
-const duration = document.getElementById("duration");
-const progress = document.getElementById("progress");
-const playBtn = document.getElementById("play-btn");
+const sideBarUl = document.getElementById('sidebar-playlist');
+const playListTitle = document.getElementById('playlist-title');
+const playlistThumbnail = document.getElementById('playlist-thumbnail');
+const playlistDescription = document.getElementById('playlist-description');
+const songName = document.getElementById('song-name');
+const socialUsername = document.getElementById('socialUsername');
+const artistName = document.getElementById('artist-name');
+const timeElapsed = document.getElementById('time-elapsed');
+const duration = document.getElementById('duration');
+const progress = document.getElementById('progress');
+const playBtn = document.getElementById('play-btn');
 
-playBtn.addEventListener("click", function () {
+playBtn.addEventListener('click', function () {
   playPause();
 });
 
 const sound = new Howl({
-  src: ["../music/alan_walker_the_spectre.mp3"],
+  src: ['../music/alan_walker_the_spectre.mp3'],
   onend: function () {
-    console.log("Finished!");
+    console.log('Finished!');
   },
 });
 
@@ -88,10 +145,10 @@ setInterval(() => {
 function updateProgress() {
   if (sound?.playing()) {
     const dur = moment.unix(sound.seek());
-    const formatted = dur.format("mm:ss");
+    const formatted = dur.format('mm:ss');
     timeElapsed.textContent = formatted;
     let seek = sound.seek() || 0;
-    let width = ((seek / sound.duration()) * 100 || 0) + "%";
+    let width = ((seek / sound.duration()) * 100 || 0) + '%';
     progress.style.width = width;
     //console.log(width);
   }
@@ -104,24 +161,40 @@ init();
 function init() {
   clearPreviousListEntries();
   for (let i = 0; i < playlists.length; i++) {
-    const liEntry = document.createElement("li");
-    liEntry.appendChild(document.createTextNode(playlists[i].name));
-    liEntry.addEventListener("click", function () {
+    const liEntry = document.createElement('li');
+
+    liEntry.appendChild(
+      document.createTextNode(
+        i == 0 ? playlists[i].name : 'This is ' + playlists[i].name
+      )
+    );
+    liEntry.addEventListener('click', function () {
       highlightSelected(playlists[i].name);
     });
     sideBarUl.appendChild(liEntry);
     if (playlists[i].selected) {
       playlistThumbnail.src = playlists[i].image;
-      playListTitle.innerHTML = getPlayListTitle(playlists[i].name);
-      playlistDescription.textContent = `The essential ${playlists[i].name} tracks and remixes.`;
+
+      if (i == 0) {
+        playListTitle.innerHTML = getPlayListTitle(playlists[i].name);
+      } else {
+        playListTitle.innerHTML = getPlayListTitle(
+          'This is ' + playlists[i].name
+        );
+      }
+
+      playlistDescription.textContent = playlists[i].message;
+      socialUsername.text = '@' + playlists[i].username;
+      socialUsername.href =
+        'https://www.instagram.com/' + playlists[i].username;
       liEntry.className =
-        "mt-2 text-white font-bold cursor-default flex justify-between items-center";
-      const speakerSpan = document.createElement("span");
-      speakerSpan.className = "text-gray-300 mr-2";
+        'mt-2 text-white font-bold cursor-default flex justify-between items-center';
+      const speakerSpan = document.createElement('span');
+      speakerSpan.className = 'text-gray-300 mr-2';
       speakerSpan.innerHTML = speakerSVG;
       liEntry.appendChild(speakerSpan);
     } else {
-      liEntry.className = "mt-2 hover:text-white cursor-default";
+      liEntry.className = 'mt-2 hover:text-white cursor-default';
     }
     liEntries.push(liEntry);
   }
@@ -151,7 +224,7 @@ function clearPreviousListEntries() {
 
 function playPause() {
   const dur = moment.unix(sound.duration());
-  const formatted = dur.format("mm:ss");
+  const formatted = dur.format('mm:ss');
   duration.textContent = formatted;
   sound?.playing() ? sound?.pause() : sound?.play();
 }
