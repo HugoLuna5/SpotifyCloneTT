@@ -1,128 +1,122 @@
+const serverURL = 'http://127.0.0.1:5500/';
+
 let playlists = [
   {
     selected: true,
     name: '¡Feliz cumpleaños, Tommy Torres!',
-    image: '../images/cover.jpg',
+    image: serverURL + 'images/cover.jpg',
     username: 'tommytorresmex',
     message: '¡La mafia mexicana te desea feliz cumpleaños!',
     audio: 'all',
   },
   {
     selected: false,
-    name: 'Annienaruz',
-    image: '../images/persons/annienaruz.png',
+    name: 'AnnieNaRuz',
+    image: serverURL + 'images/persons/annienaruz.png',
     username: 'annienaruz',
     message: '¡Feliz cumpleaños Tommy!🎉🥳',
-    audio: '../audios/annienaruz.ogg',
+    audio: serverURL + 'audios/annienaruz.ogg',
   },
   {
     selected: false,
     name: 'Luna',
-    image: '../images/persons/luna.jpg',
+    image: serverURL + 'images/persons/luna.jpg',
     username: 'luna_hercon',
     message:
       'Feliz cumpleaños Tommy, que la pases bien. \nTe ama la chica de las flores.',
-    audio: '../audios/luna.opus',
+    audio: serverURL + 'audios/luna.opus',
   },
   {
     selected: false,
     name: 'Abril',
-    image: '../images/persons/abril.jpg',
+    image: serverURL + 'images/persons/abril.jpg',
     username: 'midorisant4',
     message: '¡Felicidades y gracias por todo Tommy!',
-    audio: '../audios/abril.opus',
+    audio: serverURL + 'audios/abril.opus',
   },
   {
     selected: false,
     name: 'Diana Hernandez',
-    image: '../images/persons/diana.jpg',
+    image: serverURL + 'images/persons/diana.jpg',
     username: 'PoynterBell',
     message: 'Que cumplas muchos años más y que tengas un día increíble!!',
-    audio: '../audios/diana.m4a',
+    audio: serverURL + 'audios/diana.m4a',
   },
   {
     selected: false,
     name: 'Berenice',
-    image: '../images/persons/bere.png',
+    image: serverURL + 'images/persons/bere.png',
     username: 'bere_arm',
     message: 'Ya ármate los conciertos en CDMX y Mty. Te quiero 💕',
-    audio: '../audios/bere.mp4',
+    audio: serverURL + 'audios/bere.mp4',
   },
   {
     selected: false,
     name: 'America',
-    image: '../images/persons/america.jpg',
+    image: serverURL + 'images/persons/america.jpg',
     username: 'amehdezmuro',
     message: '',
-    audio: '../audios/america.m4a',
+    audio: serverURL + 'audios/america.m4a',
   },
 
   {
     selected: false,
     name: 'Rocio',
-    image: '../images/persons/rocio.jpeg',
+    image: serverURL + 'images/persons/rocio.jpeg',
     username: 'rousmaye',
     message:
       'Muchas felicidades querido Tommy, que sigan los éxitos, las bendiciones, la música, el amor. Gracias por tanto.',
-    audio: '../audios/rocio.m4a',
+    audio: serverURL + 'audios/rocio.mp3',
   },
-  {
-    selected: false,
-    name: 'Rocio',
-    image: '../images/persons/rocio.jpeg',
-    username: 'rousmaye',
-    message:
-      'Muchas felicidades querido Tommy, que sigan los éxitos, las bendiciones, la música, el amor. Gracias por tanto.',
-    audio: '../audios/rocio.m4a',
-  },
+
   {
     selected: false,
     name: 'Paloma',
-    image: '../images/persons/paloma.jpg',
+    image: serverURL + 'images/persons/paloma.jpg',
     username: 'paloma_saenz_12',
     message: 'Feliz cumple mi querido Tommy, I💜U',
-    audio: '../audios/paloma.mp3',
+    audio: serverURL + 'audios/paloma.mp3',
   },
   {
     selected: false,
     name: 'Monica',
-    image: '../images/persons/monica.JPG',
+    image: serverURL + 'images/persons/monica.JPG',
     username: 'monydenisse',
     message: 'Recibe "Demasiado amor" en tu día ❤',
-    audio: '../audios/monica.opus',
+    audio: serverURL + 'audios/monica.opus',
   },
   {
     selected: false,
     name: 'Yazmin',
-    image: '../images/persons/yazmin.jpg',
+    image: serverURL + 'images/persons/yazmin.jpg',
     username: 'izbethxd',
     message: '',
-    audio: '../audios/yazmin.mp4',
+    audio: serverURL + 'audios/yazmin.mp4',
   },
   {
     selected: false,
     name: 'Lyla',
-    image: '../images/persons/lyla.jpg',
+    image: serverURL + 'images/persons/lyla.jpg',
     username: 'lylacrown',
     message: '',
-    audio: '../audios/lyla.mp4',
+    audio: serverURL + 'audios/lyla.mp4',
   },
   {
     selected: false,
     name: 'Yolanda',
-    image: '../images/cover.jpg',
+    image: serverURL + 'images/cover.jpg',
     username: 'yolanda.regin',
     message: '',
-    audio: '../audios/yolanda.ogg',
+    audio: serverURL + 'audios/yolanda.ogg',
   },
   {
     selected: false,
     name: 'Anahi',
-    image: '../images/persons/anahi.jpg',
+    image: serverURL + 'images/persons/anahi.jpg',
     username: 'manahisv',
     message:
       'Feliz cumpleaños, Tommy!💜🥳🥳🥳💜\nPásala súper lindo, un abrazo 🤗😘',
-    audio: '../audios/anahi.ogg',
+    audio: serverURL + 'audios/anahi.ogg',
   },
 ];
 
@@ -139,10 +133,12 @@ class="Svg-ulyrgf-0 hJgLcF"
 ></path>
 </svg>`;
 
+const containerElements = $('#containerElements');
 const sideBarUl = document.getElementById('sidebar-playlist');
 const playListTitle = document.getElementById('playlist-title');
 const playlistThumbnail = document.getElementById('playlist-thumbnail');
 const playlistDescription = document.getElementById('playlist-description');
+const coverCurrent = document.getElementById('coverCurrent');
 const songName = document.getElementById('song-name');
 const socialUsername = document.getElementById('socialUsername');
 const artistName = document.getElementById('artist-name');
@@ -150,35 +146,92 @@ const timeElapsed = document.getElementById('time-elapsed');
 const duration = document.getElementById('duration');
 const progress = document.getElementById('progress');
 const playBtn = document.getElementById('play-btn');
+const playGlobalDesktop = document.getElementById('playGlobalDesktop');
+const playGlobalMobile = document.getElementById('playGlobalMobile');
+const playButtonBottomBarMobile = document.getElementById(
+  'playButtonBottomBarMobile'
+);
+
+const titleMobile = document.getElementById('titleMobile');
+const authorMobile = document.getElementById('authorMobile');
+
+const nextSong = document.getElementById('nextSong');
+const prevSong = document.getElementById('prevSong');
+const randomSongs = document.getElementById('randomSongs');
+const repeatSong = document.getElementById('repeatSong');
+
+var randomSongsAux = false;
+var repeatSongAux = false;
+var sounds = [];
+var currentSound = 1;
+var currentPlayList = 0;
+let liEntries = [];
 
 playBtn.addEventListener('click', function () {
-  playPause();
+  playPause(currentSound);
 });
 
-const sound = new Howl({
-  src: ['../music/alan_walker_the_spectre.mp3'],
-  onend: function () {
-    console.log('Finished!');
-  },
+playGlobalDesktop.addEventListener('click', function () {
+  playPause(currentSound);
 });
 
-setInterval(() => {
-  updateProgress();
-}, 300);
+playGlobalMobile.addEventListener('click', function () {
+  playPause(currentSound);
+});
+playButtonBottomBarMobile.addEventListener('click', function () {
+  playPause(currentSound);
+});
 
-function updateProgress() {
-  if (sound?.playing()) {
-    const dur = moment.unix(sound.seek());
-    const formatted = dur.format('mm:ss');
-    timeElapsed.textContent = formatted;
-    let seek = sound.seek() || 0;
-    let width = ((seek / sound.duration()) * 100 || 0) + '%';
-    progress.style.width = width;
-    //console.log(width);
+nextSong.addEventListener('click', function () {
+  if (currentPlayList == 0) {
+    if (currentSound == playlists.length) {
+      currentSound = 0;
+    } else {
+      currentSound++;
+    }
+
+    playPause(currentSound);
   }
-}
+});
 
-let liEntries = [];
+prevSong.addEventListener('click', function () {
+  if (currentPlayList == 0) {
+    if (repeatSongAux) {
+      sounds[currentSound].stop();
+      sounds[currentSound].play();
+    } else {
+      if (randomSongsAux) {
+        currentSound = Math.floor(Math.random() * 13) + 1;
+        playPause(currentSound);
+      } else {
+        if (currentSound > 1) {
+          currentSound--;
+          playPause(currentSound);
+        }
+      }
+    }
+  }
+});
+
+randomSongs.addEventListener('click', function () {
+  if (randomSongsAux) {
+    randomSongs.style.fill = 'currentColor';
+    randomSongsAux = false;
+  } else {
+    randomSongs.style.fill = '#1db954';
+    randomSongsAux = true;
+  }
+});
+
+repeatSong.addEventListener('click', function () {
+  if (repeatSongAux) {
+    repeatSong.style.fill = 'currentColor';
+    repeatSongAux = false;
+  } else {
+    repeatSong.style.fill = '#1db954';
+    repeatSongAux = true;
+  }
+});
 
 init();
 
@@ -194,6 +247,10 @@ function init() {
     );
     liEntry.addEventListener('click', function () {
       highlightSelected(playlists[i].name);
+      containerElements.empty();
+      currentSound = i == 0 ? i + 1 : i;
+      currentPlayList = position;
+      loadItems(i);
     });
     sideBarUl.appendChild(liEntry);
     if (playlists[i].selected) {
@@ -221,6 +278,39 @@ function init() {
       liEntry.className = 'mt-2 hover:text-white cursor-default';
     }
     liEntries.push(liEntry);
+
+    sounds.push(
+      new Howl({
+        src: [playlists[i].audio],
+        onend: function () {
+          console.log('Finished!');
+          actionPlayList();
+        },
+      })
+    );
+  }
+
+  loadItems(0);
+}
+
+function actionPlayList() {
+  if (currentPlayList == 0) {
+    if (repeatSongAux) {
+      sounds[currentSound].play();
+    } else {
+      if (randomSongsAux) {
+        currentSound = Math.floor(Math.random() * 13) + 1;
+        playPause(currentSound);
+      } else {
+        if (currentSound == playlists.length) {
+          currentSound = 0;
+        } else {
+          currentSound++;
+        }
+
+        playPause(currentSound);
+      }
+    }
   }
 }
 
@@ -246,9 +336,73 @@ function clearPreviousListEntries() {
   }
 }
 
-function playPause() {
-  const dur = moment.unix(sound.duration());
+function loadItems(position) {
+  if (position == 0) {
+    for (let index = 1; index < playlists.length; index++) {
+      let element =
+        '<tr onclick="playSong(' +
+        index +
+        ')"  class="flex  text-gray-400 m-2 font-mono hover:bg-gray-200 hover:bg-opacity-10 rounded-md py-2 "><td class=" grid grid-cols-12 gap-4"> <div class="col-span-1 justify-center items-center"> <p class="text-center py-2">' +
+        index +
+        '</p></div><div class="col-span-10"> <p class="text-white">¡Feliz cumpleaños!</p><p style="font-size: 0.75rem;">' +
+        playlists[index].name +
+        '</p></div> <div class="col-span-1">  </div></td></tr>';
+
+      containerElements.append(element);
+    }
+  } else {
+    let element =
+      '<tr onclick="playSong(' +
+      position +
+      ')"  class="flex  text-gray-400 m-2 font-mono hover:bg-gray-200 hover:bg-opacity-10 rounded-md py-2 "><td class=" grid grid-cols-12 gap-4"> <div class="col-span-1 justify-center items-center"> <p class="text-center py-2">' +
+      1 +
+      '</p></div><div class="col-span-10"> <p class="text-white">¡Feliz cumpleaños!</p><p style="font-size: 0.75rem;">' +
+      playlists[position].name +
+      '</p></div> <div class="col-span-1"> </div></td></tr>';
+
+    containerElements.append(element);
+  }
+}
+
+function playSong(position) {
+  stopAll(0);
+  currentSound = position;
+  playPause(position);
+}
+
+function stopAll(withOut) {
+  for (let index = 0; index < sounds.length; index++) {
+    if (index != withOut) {
+      sounds[index].stop();
+    }
+  }
+}
+
+function playPause(position) {
+  artistName.textContent = playlists[position].name;
+  songName.textContent = '¡Feliz Cumpleaños!';
+  coverCurrent.src = playlists[position].image;
+  stopAll(position);
+  const dur = moment.unix(sounds[position].duration());
   const formatted = dur.format('mm:ss');
   duration.textContent = formatted;
-  sound?.playing() ? sound?.pause() : sound?.play();
+  sounds[position]?.playing()
+    ? sounds[position]?.pause()
+    : sounds[position]?.play();
+}
+
+setInterval(() => {
+  updateProgress(currentSound);
+}, 300);
+
+function updateProgress(position) {
+  if (sounds[position]?.playing()) {
+    const dur = moment.unix(sounds[position].seek());
+    const formatted = dur.format('mm:ss');
+    timeElapsed.textContent = formatted;
+    let seek = sounds[position].seek() || 0;
+    let width = ((seek / sounds[position].duration()) * 100 || 0) + '%';
+    progress.style.width = width;
+    //console.log(width);
+  }
 }
