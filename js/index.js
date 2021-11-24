@@ -7,7 +7,7 @@ let playlists = [
     image: serverURL + 'images/cover.jpg',
     username: 'tommytorresmex',
     message: '¡La mafia mexicana te desea feliz cumpleaños!🎉🥳',
-    audio: 'all',
+    audio: serverURL + 'audios/default.mp3',
   },
   {
     selected: false,
@@ -208,13 +208,23 @@ playButtonBottomBarMobile.addEventListener('click', function () {
 
 nextSong.addEventListener('click', function () {
   if (currentPlayList == 0) {
-    if (currentSound == playlists.length) {
-      currentSound = 0;
+    if (repeatSongAux) {
+      sounds[currentSound].stop();
+      sounds[currentSound].play();
     } else {
-      currentSound++;
-    }
+      if (randomSongsAux) {
+        currentSound = Math.floor(Math.random() * 13) + 1;
+        playPause(currentSound);
+      } else {
+        if (currentSound == playlists.length) {
+          currentSound = 0;
+        } else {
+          currentSound++;
+        }
 
-    playPause(currentSound);
+        playPause(currentSound);
+      }
+    }
   }
 });
 
@@ -275,6 +285,9 @@ function init() {
       currentSound = i == 0 ? i + 1 : i;
       currentPlayList = i;
       loadItems(i);
+
+      let res = sounds[currentSound]?.playing();
+      typeof res ? hideStopButtons() : hidePlayButtons();
     });
     sideBarUl.appendChild(liEntry);
     if (playlists[i].selected) {
@@ -306,6 +319,7 @@ function init() {
     sounds.push(
       new Howl({
         src: [playlists[i].audio],
+        html5: true,
         onend: function () {
           console.log('Finished!');
           actionPlayList();
@@ -407,7 +421,7 @@ function playSong(position) {
     element.classList.add('bg-gray-200');
     element.classList.add('bg-opacity-10');
   } else {
-    let element = document.getElementById('element' + position);
+    let element = document.getElementById('element1');
     element.classList.add('bg-gray-200');
     element.classList.add('bg-opacity-10');
   }
@@ -444,50 +458,63 @@ function playPause(position) {
   const dur = moment.unix(sounds[position].duration());
   const formatted = dur.format('mm:ss');
   duration.textContent = formatted;
-  sounds[position]?.playing()
+  let res = sounds[position]?.playing()
     ? sounds[position]?.pause()
     : sounds[position]?.play();
-
-  sounds[position]?.playing() ? hidePlayButtons() : hideStopButtons();
+  typeof res === 'number' ? hidePlayButtons() : hideStopButtons();
 }
 
 function hideStopButtons() {
+  let res = sounds[currentPlayList]?.playing();
+
   iconStopButtonBarDesktop.style.display = 'none';
-  pauseGlobalDesktop.style.display = 'none';
-  pauseGlobalMobileIcon.style.display = 'none';
   pauseIconBottomBarMobile.style.display = 'none';
 
+  if (!res || currentPlayList == 0) {
+    pauseGlobalDesktop.style.display = 'none';
+    pauseGlobalMobileIcon.style.display = 'none';
+
+    playGlobalDesktop.style.display = 'block';
+    playGlobalMobileIcon.style.display = 'block';
+  }
+
   iconPlayButtonBarDesktop.style.display = 'block';
-  playGlobalDesktop.style.display = 'block';
-  playGlobalMobileIcon.style.display = 'block';
   playIconBottomBarMobile.style.display = 'block';
 }
+
 function hidePlayButtons() {
+  let res = sounds[currentPlayList]?.playing();
+
   iconPlayButtonBarDesktop.style.display = 'none';
-  playGlobalDesktop.style.display = 'none';
-  playGlobalMobileIcon.style.display = 'none';
   playIconBottomBarMobile.style.display = 'none';
 
+  if (res || currentPlayList == 0) {
+    playGlobalDesktop.style.display = 'none';
+    playGlobalMobileIcon.style.display = 'none';
+
+    pauseGlobalDesktop.style.display = 'block';
+    pauseGlobalMobileIcon.style.display = 'block';
+  }
+
   iconStopButtonBarDesktop.style.display = 'block';
-  pauseGlobalDesktop.style.display = 'block';
-  pauseGlobalMobileIcon.style.display = 'block';
   pauseIconBottomBarMobile.style.display = 'block';
 }
 
 inputVolume.addEventListener('change', function () {
-  sounds[currentSound].volume(inputVolume.value / 100);
-
   if (inputVolume.value / 100 <= 0.01) {
     soundMuted.style.display = 'block';
     soundActivated.style.display = 'none';
+    sounds[currentSound].mute(true);
   } else {
     soundMuted.style.display = 'none';
     soundActivated.style.display = 'block';
+    sounds[currentSound].mute(false);
+    sounds[currentSound].volume(inputVolume.value / 100);
   }
 });
 
 soundActivated.addEventListener('click', function () {
-  inputVolume.value = 0.01;
+  inputVolume.value = 0;
   soundMuted.style.display = 'block';
   soundActivated.style.display = 'none';
 });
@@ -500,6 +527,12 @@ soundMuted.addEventListener('click', function () {
 
 setInterval(() => {
   sounds[currentSound].volume(inputVolume.value / 100);
+  if (inputVolume.value / 100 <= 0.01) {
+    sounds[currentSound].mute(true);
+  } else {
+    sounds[currentSound].mute(false);
+  }
+
   updateProgress(currentSound);
 }, 300);
 
@@ -509,7 +542,7 @@ function updateProgress(position) {
     const formatted = dur.format('mm:ss');
     timeElapsed.textContent = formatted;
     let seek = sounds[position].seek() || 0;
-    let width = ((seek / sounds[position].duration()) * 100 || 0) + '%';
+    let width = ((seek / sounds[position].duration()) * 110 || 0) + '%';
     progress.style.width = width;
     //console.log(width);
   }
