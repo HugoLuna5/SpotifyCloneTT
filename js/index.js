@@ -147,9 +147,25 @@ const duration = document.getElementById('duration');
 const progress = document.getElementById('progress');
 const playBtn = document.getElementById('play-btn');
 const playGlobalDesktop = document.getElementById('playGlobalDesktop');
+const pauseGlobalDesktop = document.getElementById('pauseGlobalDesktop');
 const playGlobalMobile = document.getElementById('playGlobalMobile');
+const playGlobalMobileIcon = document.getElementById('playGlobalMobileIcon');
+const pauseGlobalMobileIcon = document.getElementById('pauseGlobalMobileIcon');
 const playButtonBottomBarMobile = document.getElementById(
   'playButtonBottomBarMobile'
+);
+
+const iconStopButtonBarDesktop = document.getElementById(
+  'iconStopButtonBarDesktop'
+);
+const iconPlayButtonBarDesktop = document.getElementById(
+  'iconPlayButtonBarDesktop'
+);
+const playIconBottomBarMobile = document.getElementById(
+  'playIconBottomBarMobile'
+);
+const pauseIconBottomBarMobile = document.getElementById(
+  'pauseIconBottomBarMobile'
 );
 
 const titleMobile = document.getElementById('titleMobile');
@@ -168,6 +184,10 @@ var currentPlayList = 0;
 let liEntries = [];
 
 playBtn.addEventListener('click', function () {
+  playPause(currentSound);
+});
+
+pauseGlobalDesktop.addEventListener('click', function () {
   playPause(currentSound);
 });
 
@@ -249,7 +269,7 @@ function init() {
       highlightSelected(playlists[i].name);
       containerElements.empty();
       currentSound = i == 0 ? i + 1 : i;
-      currentPlayList = position;
+      currentPlayList = i;
       loadItems(i);
     });
     sideBarUl.appendChild(liEntry);
@@ -378,7 +398,14 @@ function stopAll(withOut) {
   }
 }
 
+function showInfo() {
+  coverCurrent.style.display = 'block';
+  artistName.style.display = 'block';
+  songName.style.display = 'block';
+}
+
 function playPause(position) {
+  showInfo();
   artistName.textContent = playlists[position].name;
   songName.textContent = '¡Feliz Cumpleaños!';
   coverCurrent.src = playlists[position].image;
@@ -389,6 +416,31 @@ function playPause(position) {
   sounds[position]?.playing()
     ? sounds[position]?.pause()
     : sounds[position]?.play();
+
+  sounds[position]?.playing() ? hidePlayButtons() : hideStopButtons();
+}
+
+function hideStopButtons() {
+  iconStopButtonBarDesktop.style.display = 'none';
+  pauseGlobalDesktop.style.display = 'none';
+  pauseGlobalMobileIcon.style.display = 'none';
+  pauseIconBottomBarMobile.style.display = 'none';
+
+  iconPlayButtonBarDesktop.style.display = 'block';
+  playGlobalDesktop.style.display = 'block';
+  playGlobalMobileIcon.style.display = 'block';
+  playIconBottomBarMobile.style.display = 'block';
+}
+function hidePlayButtons() {
+  iconPlayButtonBarDesktop.style.display = 'none';
+  playGlobalDesktop.style.display = 'none';
+  playGlobalMobileIcon.style.display = 'none';
+  playIconBottomBarMobile.style.display = 'none';
+
+  iconStopButtonBarDesktop.style.display = 'block';
+  pauseGlobalDesktop.style.display = 'block';
+  pauseGlobalMobileIcon.style.display = 'block';
+  pauseIconBottomBarMobile.style.display = 'block';
 }
 
 setInterval(() => {
