@@ -5,49 +5,15 @@ let playlists = [
     image: '../images/cover.jpg',
     username: 'tommytorresmex',
     message: '¡La mafia mexicana te desea feliz cumpleaños!',
+    audio: 'all',
   },
   {
     selected: false,
     name: 'Annienaruz',
     image: '../images/persons/annienaruz.png',
     username: 'annienaruz',
-    message: 'Que chingue a su madre el cumpleañero',
-  },
-  {
-    selected: false,
-    name: 'Rocio',
-    image: '../images/persons/rocio.jpeg',
-    username: 'rousmaye',
-    message:
-      'Muchas felicidades querido Tommy, que sigan los éxitos, las bendiciones, la música, el amor. Gracias por tanto.',
-  },
-  {
-    selected: false,
-    name: 'Abril',
-    image: '../images/persons/abril.jpg',
-    username: 'midorisant4',
-    message: '¡Felicidades y gracias por todo Tommy!',
-  },
-  {
-    selected: false,
-    name: 'Diana Hernandez',
-    image: '../images/persons/diana.jpg',
-    username: 'PoynterBell',
-    message: 'Que cumplas muchos años más y que tengas un día increíble!!',
-  },
-  {
-    selected: false,
-    name: 'Berenice',
-    image: '../images/persons/bere.png',
-    username: 'bere_arm',
-    message: 'Ya ármate los conciertos en CDMX y Mty. Te quiero 💕',
-  },
-  {
-    selected: false,
-    name: 'America',
-    image: '../images/persons/america.jpg',
-    username: 'amehdezmuro',
-    message: '',
+    message: '¡Feliz cumpleaños Tommy!🎉🥳',
+    audio: 'all',
   },
   {
     selected: false,
@@ -56,6 +22,58 @@ let playlists = [
     username: 'luna_hercon',
     message:
       'Feliz cumpleaños Tommy, que la pases bien. \nTe ama la chica de las flores.',
+    audio: '../audios/luna.opus',
+  },
+  {
+    selected: false,
+    name: 'Abril',
+    image: '../images/persons/abril.jpg',
+    username: 'midorisant4',
+    message: '¡Felicidades y gracias por todo Tommy!',
+    audio: '../audios/abril.opus',
+  },
+  {
+    selected: false,
+    name: 'Diana Hernandez',
+    image: '../images/persons/diana.jpg',
+    username: 'PoynterBell',
+    message: 'Que cumplas muchos años más y que tengas un día increíble!!',
+    audio: '../audios/diana.m4a',
+  },
+  {
+    selected: false,
+    name: 'Berenice',
+    image: '../images/persons/bere.png',
+    username: 'bere_arm',
+    message: 'Ya ármate los conciertos en CDMX y Mty. Te quiero 💕',
+    audio: '../audios/bere.mp4',
+  },
+  {
+    selected: false,
+    name: 'America',
+    image: '../images/persons/america.jpg',
+    username: 'amehdezmuro',
+    message: '',
+    audio: '../audios/america.m4a',
+  },
+
+  {
+    selected: false,
+    name: 'Rocio',
+    image: '../images/persons/rocio.jpeg',
+    username: 'rousmaye',
+    message:
+      'Muchas felicidades querido Tommy, que sigan los éxitos, las bendiciones, la música, el amor. Gracias por tanto.',
+    audio: '../audios/rocio.m4a',
+  },
+  {
+    selected: false,
+    name: 'Rocio',
+    image: '../images/persons/rocio.jpeg',
+    username: 'rousmaye',
+    message:
+      'Muchas felicidades querido Tommy, que sigan los éxitos, las bendiciones, la música, el amor. Gracias por tanto.',
+    audio: '../audios/rocio.m4a',
   },
   {
     selected: false,
@@ -63,6 +81,7 @@ let playlists = [
     image: '../images/persons/paloma.jpg',
     username: 'paloma_saenz_12',
     message: 'Feliz cumple mi querido Tommy, I💜U',
+    audio: '../audios/paloma.mp3',
   },
   {
     selected: false,
@@ -70,6 +89,7 @@ let playlists = [
     image: '../images/persons/monica.JPG',
     username: 'monydenisse',
     message: 'Recibe "Demasiado amor" en tu día ❤',
+    audio: '../audios/monica.opus',
   },
   {
     selected: false,
@@ -77,6 +97,7 @@ let playlists = [
     image: '../images/persons/yazmin.jpg',
     username: 'izbethxd',
     message: '',
+    audio: '../audios/yazmin.mp4',
   },
   {
     selected: false,
@@ -84,6 +105,7 @@ let playlists = [
     image: '../images/persons/lyla.jpg',
     username: 'lylacrown',
     message: '',
+    audio: '../audios/lyla.mp4',
   },
   {
     selected: false,
@@ -91,6 +113,7 @@ let playlists = [
     image: '../images/cover.jpg',
     username: 'yolanda.regin',
     message: '',
+    audio: '../audios/yolanda.ogg',
   },
   {
     selected: false,
@@ -99,6 +122,7 @@ let playlists = [
     username: 'manahisv',
     message:
       'Feliz cumpleaños, Tommy!💜🥳🥳🥳💜\nPásala súper lindo, un abrazo 🤗😘',
+    audio: '../audios/anahi.ogg',
   },
 ];
 
