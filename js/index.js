@@ -24,7 +24,7 @@ let playlists = [
   {
     selected: false,
     name: 'Abril',
-    image: '../images/persons/rocio.jpeg',
+    image: '../images/persons/abril.jpg',
     username: 'midorisant4',
     message: '¡Felicidades y gracias por todo Tommy!',
   },
@@ -38,7 +38,7 @@ let playlists = [
   {
     selected: false,
     name: 'Berenice',
-    image: '../images/persons/rocio.jpeg',
+    image: '../images/persons/bere.png',
     username: 'bere_arm',
     message: 'Ya ármate los conciertos en CDMX y Mty. Te quiero 💕',
   },
@@ -52,7 +52,7 @@ let playlists = [
   {
     selected: false,
     name: 'Luna',
-    image: '../images/persons/rocio.jpeg',
+    image: '../images/persons/luna.jpg',
     username: 'luna_hercon',
     message:
       'Feliz cumpleaños Tommy, que la pases bien. \nTe ama la chica de las flores.',
@@ -74,28 +74,28 @@ let playlists = [
   {
     selected: false,
     name: 'Yazmin',
-    image: '../images/persons/rocio.jpeg',
+    image: '../images/persons/yazmin.jpg',
     username: 'izbethxd',
     message: '',
   },
   {
     selected: false,
     name: 'Lyla',
-    image: '../images/persons/rocio.jpeg',
+    image: '../images/persons/lyla.jpg',
     username: 'lylacrown',
     message: '',
   },
   {
     selected: false,
     name: 'Yolanda',
-    image: '../images/persons/rocio.jpeg',
+    image: '../images/cover.jpg',
     username: 'yolanda.regin',
     message: '',
   },
   {
     selected: false,
     name: 'Anahi',
-    image: '../images/persons/rocio.jpeg',
+    image: '../images/persons/anahi.jpg',
     username: 'manahisv',
     message:
       'Feliz cumpleaños, Tommy!💜🥳🥳🥳💜\nPásala súper lindo, un abrazo 🤗😘',
